@@ -1,0 +1,442 @@
+/* Base Styles */
+:root {
+    --primary-color: #EDE8D0;
+    /* Beige */
+    --secondary-color: #343a40;
+    /* Dark gray for contrast */
+    --light-color: #ffffff;
+    /* White for background and light elements */
+    --dark-color: #212529;
+    /* Darker gray for text */
+    --text-color: #495057;
+    /* Neutral gray for text */
+    --bg-color: #ffffff;
+    /* White background */
+    --section-padding: 80px 0;
+    --hover-color: #c8bca6;
+    /* Slightly darker beige */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    /* Keep background white */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../imgs/background.jpg') center/cover no-repeat;
+    color: var(--light-color);
+    /* Ensure text is readable on the header */
+}
+
+.header-title {
+    font-size: 4rem;
+    /* Larger font size for emphasis */
+    font-weight: 700;
+}
+
+.header-subtitle {
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-link {
+    color: var(--text-light);
+    font-size: 2rem;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+}
+
+/* Navigation */
+.navbar {
+    width: 100%;
+    background-color: #EDE8D0;
+    /* Solid beige color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    /* Ensure it stays above other elements */
+    transition: background-color 0.3s;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--dark-color);
+    /* Darker gray for contrast */
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive Dropdown Menu for Mobile */
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    color: var(--dark-color);
+}
+
+#menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(237, 232, 208, 0.95);
+        /* Slightly more solid beige */
+        width: 180px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    #menu-toggle:checked+.menu-icon+.nav-links {
+        display: flex;
+    }
+}
+
+#home {
+    padding-top: 80px;
+    /* Add padding to prevent content overlap */
+    scroll-margin-top: 80px;
+}
+
+/* Section Styles */
+.section {
+    padding: var(--section-padding);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    /* Beige underline for section titles */
+    margin: 15px auto;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    /* Beige buttons */
+    color: var(--light-color);
+    /* White text on buttons */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #c8bca6;
+    /* Slightly darker beige for hover */
+}
+
+.btn-download {
+    margin-top: 20px;
+}
+
+/* Resume Section */
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.resume-card {
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.resume-card-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+    position: relative;
+}
+
+.resume-card-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin-top: 10px;
+}
+
+.resume-item {
+    margin-bottom: 25px;
+}
+
+.resume-item-title {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.resume-item-date {
+    color: var(--primary-color);
+    /* Beige for dates */
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* Contact Section */
+.contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    /* Reduced gap for closer spacing */
+    flex-wrap: wrap;
+}
+
+.contact-image img {
+    width: 100%;
+    max-width: 180px;
+    /* Slightly smaller for balance */
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-right: 35px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    /* Reduce space between text items */
+    max-width: 300px;
+    /* Prevents text from stretching */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Adjust spacing between icon and text */
+    font-size: 1.1rem;
+}
+
+
+.contact-item i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .navbar-collapse.show {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .header-title {
+        font-size: 2.5rem;
+    }
+
+    .header-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding: 80px 0;
+    }
+
+    .header-title {
+        font-size: 2rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+/* Navbar Navigation Links */
+.navbar-nav .nav-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    /* Beige background */
+    color: var(--dark-color);
+    /* Dark text */
+    border-radius: 25px;
+    /* Rounded corners */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    /* Smooth transition */
+    text-decoration: none;
+    /* Remove underline */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Add subtle shadow for button effect */
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: var(--hover-color);
+    /* Darker beige on hover */
+    color: var(--dark-color);
+    /* Keep text color dark on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Enhance shadow on hover */
+}
