@@ -12,9 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     menuToggle.addEventListener("change", () => {
         if (menuToggle.checked) {
-            navLinks.style.display = "flex";
+            navLinks.classList.add("show");
         } else {
-            navLinks.style.display = "none";
+            navLinks.classList.remove("show");
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+            menuToggle.checked = false;
+            navLinks.classList.remove("show");
+        }
+    });
+
+    navLinks.addEventListener("click", (event) => {
+        if (event.target.tagName === "A") {
+            menuToggle.checked = false;
+            navLinks.classList.remove("show");
         }
     });
 });
