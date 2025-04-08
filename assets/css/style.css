@@ -1,7 +1,7 @@
 /* Base Styles */
 :root {
-    --primary-color: #EDE8D0;
-    /* Beige */
+    --primary-color: #c8bca6;
+    /* Beige c8bca6*/
     --secondary-color: #343a40;
     /* Dark gray for contrast */
     --light-color: #ffffff;
@@ -13,7 +13,7 @@
     --bg-color: #ffffff;
     /* White background */
     --section-padding: 80px 0;
-    --hover-color: #c8bca6;
+    --hover-color: #EDE8D0;
     /* Slightly darker beige */
 }
 
@@ -74,7 +74,7 @@ body {
 
 .social-link {
     color: var(--text-light);
-    font-size: 2rem;
+    font-size: 2.5rem;
     transition: 0.3s;
 }
 
@@ -440,4 +440,41 @@ body {
     /* Keep text color dark on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     /* Enhance shadow on hover */
+}
+
+/* Projects Section Styling */
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.project-link:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.project-link i {
+    font-size: 1.1rem;
+}
+
+/* Make sure the projects section is included in the navbar styling */
+@media (max-width: 768px) {
+    .projects-section .resume-grid {
+        grid-template-columns: 1fr;
+    }
 }
