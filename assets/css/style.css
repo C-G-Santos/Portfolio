@@ -478,3 +478,56 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Ticker/marquee styling */
+.ticker-wrapper {
+    width: 100%;
+    background-color: var(--primary-color);
+    overflow: hidden;
+    position: fixed;
+    top: 60px;
+    /* Afhankelijk van de hoogte van je navbar */
+    z-index: 900;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ticker {
+    display: flex;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+}
+
+.ticker-content {
+    display: inline-block;
+    padding: 8px 0;
+    animation: ticker 30s linear infinite;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.ticker-content span {
+    margin-right: 50px;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Adjust section padding to account for the ticker */
+#home {
+    padding-top: 100px;
+    /* Increase to accommodate navbar + ticker */
+}
+
+/* Extra padding for other sections */
+section:not(#home) {
+    padding-top: 120px;
+    margin-top: -40px;
+}
